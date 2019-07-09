@@ -47,3 +47,25 @@ console.log(filteredNames) // => ['Rich', 'Ray']
 
 filter(myNames);
 
+//Functions as return values
+
+function hazardWarningCreator(typeOfWarning) {
+    let warningCounter = 0;
+    return function(location) {
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    }
+}
+const windWarning = hazardWarningCreator('High Winds!');
+const oilWarning = hazardWarningCreator('Oil on the Road');
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+
+rocksWarning('Long Beach and Imperial');
+rocksWarning('First and Second Ave.');
+windWarning('Pacific Beach');
+windWarning('Newport Beach');
+windWarning('Laguna Beach');
+oilWarning('Northside Beach');
+oilWarning('Huntington Beach');
+
